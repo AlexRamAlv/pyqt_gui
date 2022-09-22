@@ -36,6 +36,7 @@ class Ui_Dialog(object):
         )
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+
         self.frame.setObjectName("frame")
         self.checkBox = QtWidgets.QCheckBox(self.frame)
         self.checkBox.setGeometry(QtCore.QRect(70, 200, 201, 17))
@@ -219,6 +220,8 @@ class Ui_Dialog(object):
 
         self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_6.setObjectName("label_6")
+
+        # Push Button Close
         self.pushButton_2 = QtWidgets.QPushButton(self.frame)
         self.pushButton_2.setGeometry(QtCore.QRect(460, 20, 31, 31))
         font = QtGui.QFont()
@@ -247,6 +250,35 @@ class Ui_Dialog(object):
         self.pushButton_2.setFlat(False)
         self.pushButton_2.setObjectName("pushButton_2")
 
+        # Push Button Minimaze
+        self.pushButton_3 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_3.setGeometry(QtCore.QRect(425, 20, 31, 31))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_3.setFont(font)
+        self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_3.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.pushButton_3.setStyleSheet(
+            "QPushButton{\n"
+            "border-radius:10px;\n"
+            "background-color: #114541;\n"
+            "font-weight: bold;\n"
+            "color: #FFF;\n"
+            "\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover{\n"
+            "background-color: #082b28;\n"
+            "\n"
+            "}"
+        )
+        self.pushButton_3.setAutoDefault(True)
+        self.pushButton_3.setDefault(False)
+        self.pushButton_3.setFlat(False)
+        self.pushButton_3.setObjectName("pushButton_3")
+
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -264,3 +296,4 @@ class Ui_Dialog(object):
         self.checkBox_2.setText(_translate("Dialog", "Cambiar destinatarios"))
         self.label_5.setText(_translate("Dialog", ""))
         self.pushButton_2.setText(_translate("Dialog", "X"))
+        self.pushButton_3.setText(_translate("Dialog", "_"))

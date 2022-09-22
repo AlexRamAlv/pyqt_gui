@@ -4,3 +4,7 @@ demos/
 build/
 dist/
 *.spec
+*.ui
+mainWindow.py
+progressBar.py
+DProgressBar.py
