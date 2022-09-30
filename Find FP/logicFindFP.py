@@ -3,7 +3,7 @@
     Then we run on terminal in the exact location of the application you want to make the installer
     the following commands depending on what you want or need.
 
-    pyinstaller --windowed --onefile --icon=./path Appname 
+    pyinstaller --windowed --onefile --icon=./path Appname
 
 """
 
@@ -61,12 +61,12 @@ class ProgressBar(QWidget):
 
 class TheForm(QDialog):
     def __init__(self) -> None:
-        # cwd = Path.cwd()
-        # file_path = cwd / "files/path.txt"
-        # file_path.touch(exist_ok=True)
+        cwd = Path.cwd()
+        file_path = cwd / "Find FP/files/path.txt"
+        file_path.touch(exist_ok=True)
 
-        # file_mails = cwd / "files/mails.txt"
-        # file_mails.touch(exist_ok=True)
+        file_mails = cwd / "Find FP/files/mails.txt"
+        file_mails.touch(exist_ok=True)
 
         super().__init__()
         self.ui = Ui_Dialog()
@@ -75,7 +75,7 @@ class TheForm(QDialog):
         self.ui.pushButton_3.clicked.connect(lambda: self.showMinimized())
 
         # QLineEdit 2
-        with open(file="Find FP\\files\\path.txt", mode="r", encoding="utf-8") as f:
+        with open(file=file_path, mode="r", encoding="utf-8") as f:
             self.path = f.read().strip()
 
         self.ui.lineEdit_2.setText(self.path)
@@ -84,7 +84,7 @@ class TheForm(QDialog):
         self.ui.checkBox.clicked.connect(self.modify_path)
 
         # QLineEdit 3
-        with open(file="Find FP\\files\\mails.txt", mode="r", encoding="utf-8") as f:
+        with open(file=file_mails, mode="r", encoding="utf-8") as f:
             self.mails = f.read().strip()
 
         self.ui.lineEdit_3.setText(self.mails)
@@ -160,7 +160,7 @@ class TheForm(QDialog):
             mail.CC = "ancruz@rowe.com.do"
             mail.Subject = f"Solicitud de cotización Fotopolímeros {datetime.now().strftime('%d %b %Y')}"
             mail.HTMLBody = """
-                <p style="font-family:Tahoma; font-size:16px">
+                <p style="font-family: Tahoma; font-size: 16px; line-height: 20px;">
                     Estimados, gusto en saludarles.
                     Favor colaborarnos con una cotización para el(los) siguiente(s) fotopolímero(s) que dejo en adjunto.
                     <br/><br/>
@@ -173,7 +173,7 @@ class TheForm(QDialog):
 
             if self.ui.checkBox.isChecked() and self.ui.lineEdit_2.text() != self.path:
                 with open(
-                    file="Find FP\\files\\path.txt", mode="w", encoding="utf-8"
+                    file=file_path, mode="w", encoding="utf-8"
                 ) as f:
                     f.write(self.ui.lineEdit_2.text())
 
@@ -182,7 +182,7 @@ class TheForm(QDialog):
                 and self.ui.lineEdit_3.text() != self.mails
             ):
                 with open(
-                    file="Find FP\\files\\mails.txt", mode="w", encoding="utf-8"
+                    file=file_mails, mode="w", encoding="utf-8"
                 ) as f:
                     f.write(self.ui.lineEdit_3.text())
 
